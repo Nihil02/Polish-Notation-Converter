@@ -1,0 +1,28 @@
+{
+  "name": "polish-notation-converter",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/polish-notation-converter.umd.cjs",
+  "module": "./dist/polish-notation-converter.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/polish-notation-converter.js",
+      "require": "./dist/polish-notation-converter.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "vite-plugin-dts": "^2.1.0"
+  }
+}
