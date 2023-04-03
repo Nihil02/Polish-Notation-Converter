@@ -21,3 +21,10 @@ export function clearInput(str: string): string {
   str = str.replaceAll(" ", "");
   return str;
 }
+
+export function isEmpty(arr: string | any[]): boolean {
+  if (arr.length == 0) {
+    return true;
+  }
+  return false;
+}

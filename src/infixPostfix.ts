@@ -1,8 +1,8 @@
-import { operand, pemdas } from "./util";
+import { isEmpty, operand, pemdas } from "./util";
 
 function infixPostfix(expression: string) {
   let res: string = "";
-  let stack = [];
+  let stack: string[] = [];
 
   for (let i = 0; i < expression.length; i++) {
     let value = expression[i];
@@ -17,14 +17,17 @@ function infixPostfix(expression: string) {
       }
       stack.pop();
     } else {
-      while (stack.length != 0 && pemdas(value) <= pemdas(stack[stack.length - 1])) {
+      while (
+        !isEmpty(stack) &&
+        pemdas(value) <= pemdas(stack[stack.length - 1])
+      ) {
         res += stack.pop();
       }
       stack.push(value);
     }
   }
 
-  while (stack.length != 0) {
+  while (!isEmpty(stack)) {
     res += stack.pop();
   }
 
