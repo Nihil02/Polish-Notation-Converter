@@ -1,4 +1,4 @@
-import { clearInput, operand, pemdas } from "./util";
+import { clearInput, isEmpty, operand, pemdas } from "./util";
 
 function revStr(str: string) {
   return str.split("").reverse().join("");
@@ -13,7 +13,7 @@ function infixPrefix(expression: string) {
     .replaceAll("***", "(");
 
   let res: string = "";
-  let stack = [];
+  let stack: string[] = [];
 
   for (let i = 0; i < expression.length; i++) {
     let value = expression[i];
@@ -29,7 +29,7 @@ function infixPrefix(expression: string) {
       stack.pop();
     } else {
       while (
-        stack.length != 0 &&
+        !isEmpty(stack) &&
         pemdas(value) < pemdas(stack[stack.length - 1])
       ) {
         res += stack.pop();
@@ -38,7 +38,7 @@ function infixPrefix(expression: string) {
     }
   }
 
-  while (stack.length != 0) {
+  while (!isEmpty(stack)) {
     res += stack.pop();
   }
 
