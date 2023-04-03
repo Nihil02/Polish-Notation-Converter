@@ -1,24 +1,16 @@
-const operand: RegExp = /^\d*^\w*$/;
+import { clearInput, operand, pemdas } from "./util";
 
-function pemdas(op: string) {
-  switch (op) {
-    case "^":
-      return 3;
-    case "*":
-    case "/":
-      return 2;
-    case "+":
-    case "-":
-      return 1;
-    default:
-      return 0;
-  }
+function revStr(str: string) {
+  return str.split("").reverse().join("");
 }
 
-
 function infixPrefix(expression: string) {
-  expression = expression.split("").reverse().join("");
-  expression = expression.replaceAll(")","]").replaceAll("(",")").replaceAll("]", "(");
+  expression = clearInput(expression);
+  expression = revStr(expression);
+  expression = expression
+    .replaceAll(")", "***")
+    .replaceAll("(", ")")
+    .replaceAll("***", "(");
 
   let res: string = "";
   let stack = [];
@@ -36,7 +28,10 @@ function infixPrefix(expression: string) {
       }
       stack.pop();
     } else {
-      while (stack.length != 0 && pemdas(value) < pemdas(stack[stack.length - 1])) {
+      while (
+        stack.length != 0 &&
+        pemdas(value) < pemdas(stack[stack.length - 1])
+      ) {
         res += stack.pop();
       }
       stack.push(value);
@@ -46,8 +41,8 @@ function infixPrefix(expression: string) {
   while (stack.length != 0) {
     res += stack.pop();
   }
-  
-  return res.split("").reverse().join("");
+
+  return revStr(res);
 }
 
 export default infixPrefix;

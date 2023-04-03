@@ -1,19 +1,4 @@
-const operand: RegExp = /^\d*^\w*$/;
-
-function pemdas(op: string) {
-  switch (op) {
-    case "^":
-      return 3;
-    case "*":
-    case "/":
-      return 2;
-    case "+":
-    case "-":
-      return 1;
-    default:
-      return 0;
-  }
-}
+import { operand, pemdas } from "./util";
 
 function infixPostfix(expression: string) {
   let res: string = "";

@@ -31,3 +31,12 @@ describe("prefix", () => {
     expect(infixPrefix("x=a")).toBe("=xa");
   });
 });
+
+describe("input", () => {
+  it("test 1", () => {
+    expect(infixPrefix("[a+b]")).toBe("+ab");
+  });
+  it("test 2", () => {
+    expect(infixPrefix("a+b- c")).toBe("-+abc");
+  });
+});
