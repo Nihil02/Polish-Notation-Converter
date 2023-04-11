@@ -1,11 +1,12 @@
 {
   "name": "polish-notation-converter",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "main": "./dist/polish-notation-converter.umd.cjs",
   "module": "./dist/polish-notation-converter.js",
   "types": "./dist/main.d.ts",
   "license": "MIT",
+  "homepage": "https://github.com/Nihil02/Polish-Notation-Converter",
   "exports": {
     ".": {
       "import": "./dist/polish-notation-converter.js",

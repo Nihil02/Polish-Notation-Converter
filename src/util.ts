@@ -28,3 +28,7 @@ export function isEmpty(arr: string | any[]): boolean {
   }
   return false;
 }
+
+export function revStr(str: string) {
+  return str.split("").reverse().join("");
+}
