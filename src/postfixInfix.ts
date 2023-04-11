@@ -16,7 +16,7 @@ function postfixInfix(exp: string) {
       stack.push(aux);
     }
   }
-  return stack.pop().slice(1, -1);
+  return stack.pop()!.slice(1, -1);
 }
 
 export default postfixInfix;
