@@ -1,8 +1,4 @@
-import { clearInput, isEmpty, operand, pemdas } from "./util";
-
-function revStr(str: string) {
-  return str.split("").reverse().join("");
-}
+import { clearInput, isEmpty, operand, pemdas, revStr } from "./util";
 
 function infixPrefix(expression: string) {
   expression = clearInput(expression);

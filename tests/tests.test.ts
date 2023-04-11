@@ -1,5 +1,6 @@
 import infixPrefix from "../src/infixPrefix";
 import infixPostfix from "../src/infixPostfix";
+import postfixInfix from "../src/postfixInfix";
 import { describe, expect, it } from "vitest";
 
 describe("postfix", () => {
@@ -38,5 +39,17 @@ describe("input", () => {
   });
   it("test 2", () => {
     expect(infixPrefix("a+b- c")).toBe("-+abc");
+  });
+});
+
+describe("inpost", () => {
+  it("test 1", () => {
+    expect(postfixInfix("a b +")).toBe("a+b");
+  });
+  it("test 2", () => {
+    expect(postfixInfix("2 4 + 2 +")).toBe("(2+4)+2");
+  });
+  it("test 2", () => {
+    expect(postfixInfix("23 2 + 4 5 + *")).toBe("(23+2)*(4+5)");
   });
 });
